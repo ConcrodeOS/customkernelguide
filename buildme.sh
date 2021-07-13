@@ -37,30 +37,33 @@ echo "          BUILDING KERNEL          "
 echo -e "***********************************************$nocol"
 make $KERNEL_DEFCONFIG O=out
 make -j$(nproc --all) CC=$CLANG_TOOLCHAIN CLANG_TRIPLE=aarch64-linux-gnu- O=out
-
-echo "**** Verify Image.gz-dtb ****"
+echo "**** Verify Image.gz-dtb & dtbo.img ****"
 ls $PWD/out/arch/arm64/boot/Image.gz-dtb
+ls $PWD/out/arch/arm64/boot/dtbo.img
 
-#Anykernel 2 time!!
+# Anykernel 3 time!!
 echo "**** Verifying AnyKernel3 Directory ****"
 ls $ANYKERNEL3_DIR
-#echo "**** Removing leftovers ****"
-#rm -rf $ANYKERNEL3_DIR/Image.gz-dtb
-#rm -rf $ANYKERNEL3_DIR/$FINAL_KERNEL_ZIP
+echo "**** Removing leftovers ****"
+rm -rf $ANYKERNEL3_DIR/Image.gz-dtb
+rm -rf $ANYKERNEL3_DIR/dtbo.img
+rm -rf $ANYKERNEL3_DIR/$FINAL_KERNEL_ZIP
 
-echo "**** Copying Image.gz-dtb ****"
+echo "**** Copying Image.gz-dtb & dtbo.img ****"
 cp $PWD/out/arch/arm64/boot/Image.gz-dtb $ANYKERNEL3_DIR/
+cp $PWD/out/arch/arm64/boot/dtbo.img $ANYKERNEL3_DIR/
 
-#echo "**** Time to zip up! ****"
-#cd $ANYKERNEL3_DIR/
-#zip -r9 $FINAL_KERNEL_ZIP * -x README $FINAL_KERNEL_ZIP
-#cp $ANYKERNEL3_DIR/$FINAL_KERNEL_ZIP $KERNELDIR/$FINAL_KERNEL_ZIP
+echo "**** Time to zip up! ****"
+cd $ANYKERNEL3_DIR/
+zip -r9 $FINAL_KERNEL_ZIP * -x README $FINAL_KERNEL_ZIP
+cp $ANYKERNEL3_DIR/$FINAL_KERNEL_ZIP $KERNELDIR/$FINAL_KERNEL_ZIP
 
-#echo "**** Done, here is your sha1 ****"
-#cd ..
-#rm -rf $ANYKERNEL3_DIR/$FINAL_KERNEL_ZIP
-#rm -rf $ANYKERNEL3_DIR/Image.gz-dtb
-#rm -rf out/
+echo "**** Done, here is your sha1 ****"
+cd ..
+rm -rf $ANYKERNEL3_DIR/$FINAL_KERNEL_ZIP
+rm -rf $ANYKERNEL3_DIR/Image.gz-dtb
+rm -rf $ANYKERNEL3_DIR/dtbo.img
+rm -rf out/
 
 BUILD_END=$(date +"%s")
 DIFF=$(($BUILD_END - $BUILD_START))
