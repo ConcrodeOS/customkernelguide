@@ -3,12 +3,12 @@
 #set -e
 
 ## Copy this script inside the kernel directory
-CLANG_TOOLCHAIN=/home/oghyperion/astile97/clang-6607189/bin/clang-11
-KERNEL_TOOLCHAIN=/home/oghyperion/astile97/aarch64-linux-android-4.9/bin/aarch64-linux-android-
-ARM32_TOOLCHAIN=/home/oghyperion/astile97/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-
-KERNEL_DEFCONFIG=vendor/atoll-perf_defconfig
-ANYKERNEL3_DIR=/home/oghyperion/astile97/AnyKernel3/
-#FINAL_KERNEL_ZIP=HyperionKernel_v01.zip
+CLANG_TOOLCHAIN=/home/atlanprime/kernel/clang-r416183d/bin/clang-12
+KERNEL_TOOLCHAIN=/home/atlanprime/kernel/aarch64-linux-android-4.9/bin/aarch64-linux-android-
+ARM32_TOOLCHAIN=/home/atlanprime/kernel/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-
+KERNEL_DEFCONFIG=surya_defconfig
+ANYKERNEL3_DIR=/home/atlanprime/kernel/AnyKernel3
+FINAL_KERNEL_ZIP=/home/atlanprime/kernel/Atlan.zip
 # Speed up build process
 MAKE="./makeparallel"
 
