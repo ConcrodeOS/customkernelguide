@@ -1,6 +1,6 @@
+# Custom Kernel Guide - BUILDBOT Guide
 
-• Kernel Script by https://github.com/GtrCraftl
+* Lord Have Mercy On ME!
+* Spoonfed Guide Coming Soon!
+* Please don't be a BUILDBOT
 
-I Do Not Own This.. I took this for my personal use..
-
-in kernel dir >> chmod a+x thescript.sh && ./thescript.sh
