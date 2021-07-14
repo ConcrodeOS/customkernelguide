@@ -3,12 +3,14 @@
 #set -e
 
 ## Copy this script inside the kernel directory
-CLANG_TOOLCHAIN=/home/atlanprime/kernel/clang-r416183d/bin/clang-12
-KERNEL_TOOLCHAIN=/home/atlanprime/kernel/aarch64-linux-android-4.9/bin/aarch64-linux-android-
-ARM32_TOOLCHAIN=/home/atlanprime/kernel/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-
-KERNEL_DEFCONFIG=surya_defconfig
-ANYKERNEL3_DIR=/home/atlanprime/kernel/AnyKernel3
-FINAL_KERNEL_ZIP=/home/atlanprime/kernel/Atlan.zip
+CLANG_TOOLCHAIN=(your patch where Clang is cloned)/clang/bin/clang-(specify version)
+KERNEL_TOOLCHAIN=(your patch where ARM64 GCC is cloned)/aarch64-linux-android-4.9/bin/aarch64-linux-android-
+ARM32_TOOLCHAIN=(your patch where ARM32 GCC is cloned)/arm-linux-androideabi-4.9/bin/arm-linux-androideabi-
+KERNEL_DEFCONFIG=(your device codename)_defconfig
+ANYKERNEL3_DIR=(your patch where AnyKernel3 is cloned)/AnyKernel3
+FINAL_KERNEL_ZIP=(your patch where you want it zipped)/(KernelName).zip
+
+# DO NOT EDIT UNLESS YOU KNOW WHAT YOU'RE DOING
 # Speed up build process
 MAKE="./makeparallel"
 
